@@ -1,5 +1,4 @@
-// Solution 1
-export function formatString(input: string, toUpper: boolean = true): string {
+function formatString(input: string, toUpper: boolean = true): string {
   if (toUpper) {
     return input.toUpperCase()
   }
@@ -7,20 +6,17 @@ export function formatString(input: string, toUpper: boolean = true): string {
   return input.toLowerCase()
 }
 
-// Solution 2
 type Books = { title: string; rating: number }[]
 
-export function filterByRating(items: Books): Books {
+function filterByRating(items: Books): Books {
   return items.filter(item => item.rating >= 4)
 }
 
-// Solution 3
-export function concatenateArrays<T>(...arrays: T[][]): T[] {
+function concatenateArrays<T>(...arrays: T[][]): T[] {
   return arrays.reduce((acc, cur) => acc.concat(cur))
 }
 
-// Solution 4
-export class Vehicle {
+class Vehicle {
   constructor(private _make: string, private _year: number) {}
 
   getInfo(): string {
@@ -28,7 +24,7 @@ export class Vehicle {
   }
 }
 
-export class Car extends Vehicle {
+class Car extends Vehicle {
   constructor(make: string, year: number, private _model: string) {
     super(make, year)
   }
@@ -38,8 +34,7 @@ export class Car extends Vehicle {
   }
 }
 
-// Solution 5
-export function processValue(value: string | number): number {
+function processValue(value: string | number): number {
   if (typeof value === 'string') {
     return value.length
   }
@@ -47,13 +42,12 @@ export function processValue(value: string | number): number {
   return value * 2
 }
 
-// Solution 6
 interface Product {
   name: string
   price: number
 }
 
-export function getMostExpensiveProduct(products: Product[]): Product | null {
+function getMostExpensiveProduct(products: Product[]): Product | null {
   if (products.length > 0) {
     return products.reduce((acc, cur) => (acc.price > cur.price ? acc : cur))
   }
@@ -61,8 +55,7 @@ export function getMostExpensiveProduct(products: Product[]): Product | null {
   return null
 }
 
-// Solution 7
-export enum Day {
+enum Day {
   Monday,
   Tuesday,
   Wednesday,
@@ -72,12 +65,11 @@ export enum Day {
   Sunday
 }
 
-export function getDayType(day: Day): 'Weekend' | 'Weekday' {
+function getDayType(day: Day): 'Weekend' | 'Weekday' {
   return day > 4 ? 'Weekend' : 'Weekday'
 }
 
-// Solution 8
-export async function squareAsync(n: number): Promise<number> {
+async function squareAsync(n: number): Promise<number> {
   if (n < 0) {
     throw Error('Negative number not allowed')
   }
